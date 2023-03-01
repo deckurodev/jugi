@@ -22,7 +22,8 @@ public class AccommodationFindService {
 
     private final ElasticsearchClient client;
 
-    public List<AccommodationFindResult> findResult(String request, int skip, int size) throws IOException {
+    public List<AccommodationFindResult> findResult(String request, int skip, int size) throws IOException
+    {
 
         Query byName = MatchQuery.of(m -> m
                 .field("name")
@@ -39,8 +40,6 @@ public class AccommodationFindService {
                 .query(request)
         )._toQuery();
 
-        Query query = TermQuery.of(m -> m.field("businessType").value("HOTEL"))._toQuery();
-
         SearchResponse<AccommodationFindResult> response = client.search(s -> s
                             .index("accommodation")
                             .query(q -> q
@@ -48,17 +47,16 @@ public class AccommodationFindService {
                                             .should(byName)
                                             .should(byAdress)
                                             .should(byStreetAddress)
-//                                            .must(query)
                                     )
                             ).from(skip)
                         .size(size),
                     AccommodationFindResult.class
             );
 
-
         List<Hit<AccommodationFindResult>> hits = response.hits().hits();
 
         List<AccommodationFindResult> results = new ArrayList<>();
+
         for (Hit<AccommodationFindResult> hit : hits)
         {
             AccommodationFindResult accommodationFindResult = hit.source();
