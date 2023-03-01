@@ -6,8 +6,9 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
-// test
 @Table(name = "accommodation")
 @Entity
 @Getter
@@ -38,4 +39,15 @@ public class Accommodation {
 
     @Column(name = "phone_number")
     private String phoneNumber;
+
+    @ElementCollection
+    @CollectionTable(name = "public_facilities",
+            joinColumns = @JoinColumn(name = "accommodation_id"))
+    private List<PublicFacility> publicFacilities = new ArrayList<PublicFacility>();
+
+    @ElementCollection
+    @CollectionTable(name = "private_facilities",
+            joinColumns = @JoinColumn(name = "accommodation_id"))
+    private List<PrivateFacility> privateFacilities = new ArrayList<PrivateFacility>();
+
 }
