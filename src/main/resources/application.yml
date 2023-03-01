@@ -2,9 +2,15 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/hotel?serverTimezone=Asia/Seoul
-    username:
-    password:
+    username: root
+    password: root1234
 
   jpa:
     hibernate:
       ddl-auto: none
+    database: mysql   # 추가 해준 부분
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect # 추가 해준 부분
+
+elasticsearch:
+  ip: localhost
+  port: 9200
