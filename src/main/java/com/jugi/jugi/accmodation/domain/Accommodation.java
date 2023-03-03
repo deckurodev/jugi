@@ -43,11 +43,11 @@ public class Accommodation {
     @ElementCollection
     @CollectionTable(name = "public_facilities",
             joinColumns = @JoinColumn(name = "accommodation_id"))
-    private List<PublicFacility> publicFacilities = new ArrayList<PublicFacility>();
+    private List<CommonFacility> publicFacilities = new ArrayList<CommonFacility>();
 
     @ElementCollection
     @CollectionTable(name = "private_facilities",
             joinColumns = @JoinColumn(name = "accommodation_id"))
-    private List<PrivateFacility> privateFacilities = new ArrayList<PrivateFacility>();
+    private List<RoomFacility> privateFacilities = new ArrayList<RoomFacility>();
 
 }

@@ -13,8 +13,7 @@ public class AccommodationService {
 
     private final AccommodationRepository accommodationRepository;
 
-    public List<Accommodation> findAll()
-    {
+    public List<Accommodation> findAll() {
         return accommodationRepository.findAll();
     }
 }

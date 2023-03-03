@@ -3,8 +3,9 @@ package com.jugi.jugi.accmodation.domain;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
+// 공용시설
 @Embeddable
-public class PublicFacility {
+public class CommonFacility {
 
     @Column(name = "fitness")
     private String fitness;
