@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/hotel?serverTimezone=Asia/Seoul
-    username: root
-    password: root1234
+    url: jdbc:mysql://database-1.ciclmc7wjq3o.ap-northeast-2.rds.amazonaws.com:3306/hotel?serverTimezone=Asia/Seoul
+    username: jugiadmin
+    password: kafka1234
 
   jpa:
     hibernate:
@@ -12,5 +12,5 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect # 추가 해준 부분
 
 elasticsearch:
-  ip: localhost
+  ip: 3.37.36.10
   port: 9200
