@@ -1,20 +1,24 @@
 package com.jugi.jugi.accmodation.application;
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import co.elastic.clients.elasticsearch._types.query_dsl.FieldAndFormat;
 import co.elastic.clients.elasticsearch._types.query_dsl.MatchQuery;
 import co.elastic.clients.elasticsearch._types.query_dsl.Query;
 import co.elastic.clients.elasticsearch._types.query_dsl.TermQuery;
 import co.elastic.clients.elasticsearch.core.SearchResponse;
 import co.elastic.clients.elasticsearch.core.search.Hit;
+import co.elastic.clients.json.JsonData;
 import com.jugi.jugi.accmodation.global.AccommodationDto;
 import com.jugi.jugi.accmodation.web.dto.AccommodationFindRequest;
 import com.jugi.jugi.accmodation.web.dto.AccommodationFindResult;
+import io.github.classgraph.AnnotationInfoList;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @RequiredArgsConstructor
 @Service
@@ -48,7 +52,8 @@ public class AccommodationFindService {
                                             .should(byAdress)
                                             .should(byStreetAddress)
                                     )
-                            ).from(skip)
+                            )
+                        .from(skip)
                         .size(size),
                     AccommodationFindResult.class
             );
@@ -62,7 +67,6 @@ public class AccommodationFindService {
             AccommodationFindResult accommodationFindResult = hit.source();
             results.add(accommodationFindResult);
         }
-
         return results;
     }
 }

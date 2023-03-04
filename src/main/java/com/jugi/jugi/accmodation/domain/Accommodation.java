@@ -3,6 +3,7 @@ package com.jugi.jugi.accmodation.domain;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -12,7 +13,8 @@ import java.util.List;
 @Table(name = "accommodation")
 @Entity
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Setter
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 public class Accommodation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,14 +42,9 @@ public class Accommodation {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @ElementCollection
-    @CollectionTable(name = "public_facilities",
-            joinColumns = @JoinColumn(name = "accommodation_id"))
-    private List<PublicFacility> publicFacilities = new ArrayList<PublicFacility>();
+    @Embedded
+    private PublicFacility publicFacility;
 
-    @ElementCollection
-    @CollectionTable(name = "private_facilities",
-            joinColumns = @JoinColumn(name = "accommodation_id"))
-    private List<PrivateFacility> privateFacilities = new ArrayList<PrivateFacility>();
-
+    @Embedded
+    private PrivateFacility privateFacility;
 }

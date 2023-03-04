@@ -1,6 +1,7 @@
 package com.jugi.jugi.accmodation.global;
 
 import com.jugi.jugi.accmodation.web.dto.AccommodationFindResult;
+import com.jugi.jugi.accmodation.web.dto.HotelImage;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,13 +29,6 @@ public class AccommodationDto {
     private String yaddress;
     private int groundFloor;
     private int bottomFloor;
-    private AccommodationFindResult.HotelImage hotelImage;
+    private HotelImage hotelImage;
 
-    @Getter
-    @Setter
-    public static class HotelImage
-    {
-        private String mainUrl;
-        private List<String> detailUrl;
-    }
 }

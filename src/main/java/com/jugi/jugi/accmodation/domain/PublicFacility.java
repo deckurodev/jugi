@@ -1,9 +1,16 @@
 package com.jugi.jugi.accmodation.domain;
 
+import lombok.*;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
+@Getter
+@Setter
 @Embeddable
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class PublicFacility {
 
     @Column(name = "fitness")

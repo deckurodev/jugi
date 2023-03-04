@@ -1,4 +1,4 @@
-package com.jugi.jugi.accmodation.web;
+package com.jugi.jugi.accmodation.web.controller;
 
 import com.jugi.jugi.accmodation.application.AccommodationFindService;
 import com.jugi.jugi.accmodation.web.dto.AccommodationFindResult;

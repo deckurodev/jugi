@@ -1,8 +1,13 @@
 package com.jugi.jugi.accmodation.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
+@Setter
+@Getter
 @Embeddable
 public class AccommodationAddress {
     @Column(name = "location_number")
