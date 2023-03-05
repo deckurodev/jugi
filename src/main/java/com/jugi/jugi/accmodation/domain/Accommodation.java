@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Accommodation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,9 +40,8 @@ public class Accommodation {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @Column(name = "common_facility")
-    @Enumerated(EnumType.STRING)
-    private CommonFacility commonFacility;
+    @Embedded
+    private CommonFacilities commonFacilities;
 
     @Column(name = "room_facility")
     @Enumerated(EnumType.STRING)
