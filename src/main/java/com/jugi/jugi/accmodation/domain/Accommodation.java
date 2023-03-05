@@ -43,7 +43,6 @@ public class Accommodation {
     @Embedded
     private CommonFacilities commonFacilities;
 
-    @Column(name = "room_facility")
-    @Enumerated(EnumType.STRING)
-    private RoomFacility roomFacility;
+    @Embedded
+    private RoomFacilities roomFacilities;
 }

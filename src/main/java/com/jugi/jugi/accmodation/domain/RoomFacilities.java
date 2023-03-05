@@ -9,11 +9,9 @@ import java.util.List;
 @Embeddable
 @Getter
 @Setter
-public class CommonFacilities {
-
+public class RoomFacilities {
     @Enumerated(EnumType.STRING)
     @ElementCollection
-    @CollectionTable(name = "common_facilities", joinColumns = @JoinColumn(name = "acco_id"))
-    private List<CommonFacility> commonFacilities;
-
+    @CollectionTable(name = "room_facilities", joinColumns = @JoinColumn(name = "acco_id"))
+    private List<RoomFacility> roomFacilities;
 }
