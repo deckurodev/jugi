@@ -22,8 +22,8 @@ public class Swagger2Config {
     public OpenAPI springShopOpenAPI()
     {
         return new OpenAPI()
-                .info(new Info().title("Bstagram API")
-                        .description("BMW 프로젝트 API 명세서입니다.")
+                .info(new Info().title("jugi API")
+                        .description("저기어때 프로젝트 API 명세서입니다.")
                         .version("v0.0.1"));
     }
 }
