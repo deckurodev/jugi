@@ -26,22 +26,28 @@ public class AccommodationFindService {
 
     private final ElasticsearchClient client;
 
-    public List<AccommodationFindResult> findResult(String request, int skip, int size) throws IOException
+    public List<AccommodationFindResult> findResult(AccommodationFindRequest request, int skip, int size) throws IOException
     {
 
         Query byName = MatchQuery.of(m -> m
                 .field("name")
-                .query(request)
+                .query(request.getSearch())
         )._toQuery();
 
-        Query byAdress = MatchQuery.of(m -> m
+        Query businessType = TermQuery.of(m ->
+                m
+                        .field("businessType.keyword")
+                        .value("HOTEL")
+        )._toQuery();
+
+        Query byAddress = MatchQuery.of(m -> m
                 .field("address")
-                .query(request)
+                .query(request.getSearch())
         )._toQuery();
 
         Query byStreetAddress = MatchQuery.of(m -> m
                 .field("streetNameAddress")
-                .query(request)
+                .query(request.getSearch())
         )._toQuery();
 
         SearchResponse<AccommodationFindResult> response = client.search(s -> s
@@ -49,17 +55,18 @@ public class AccommodationFindService {
                             .query(q -> q
                                     .bool(b -> b
                                             .should(byName)
-                                            .should(byAdress)
+                                            .should(byAddress)
                                             .should(byStreetAddress)
+                                            .must(businessType)
                                     )
                             )
                         .from(skip)
-                        .size(size),
+                        .size(size)
+                        ,
                     AccommodationFindResult.class
             );
 
         List<Hit<AccommodationFindResult>> hits = response.hits().hits();
-
         List<AccommodationFindResult> results = new ArrayList<>();
 
         for (Hit<AccommodationFindResult> hit : hits)
@@ -67,6 +74,7 @@ public class AccommodationFindService {
             AccommodationFindResult accommodationFindResult = hit.source();
             results.add(accommodationFindResult);
         }
+
         return results;
     }
 }
