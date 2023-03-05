@@ -9,8 +9,6 @@ import javax.persistence.Embeddable;
 @Setter
 @Embeddable
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class CommonFacility {
 
     @Column(name = "fitness")

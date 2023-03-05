@@ -12,23 +12,23 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.RequiredArgsConstructor;
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RestClient;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Configuration
 public class ElasticSearchConfig {
 
-    private final ElasticSearchProperty elasticSearchProperty;
+    @Value("${elasticsearch.ip}")
+    private String hostName;
 
     @Bean
     public ElasticsearchClient elasticsearchClient()
     {
         RestClient httpClient = RestClient.builder(
-                new HttpHost("3.37.36.10", 9200))
+                new HttpHost(hostName, 9200))
                 .build();
 
         ObjectMapper mapper = new ObjectMapper()

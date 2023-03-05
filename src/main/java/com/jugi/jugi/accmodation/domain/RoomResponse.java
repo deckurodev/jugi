@@ -16,9 +16,9 @@ public class RoomResponse {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "accommodation_id") // 호텔 아이디
-    private Accommodation accommodation;
+//    @ManyToOne
+//    @JoinColumn(name = "accommodation_id") // 호텔 아이디
+//    private Accommodation accommodation;
 
     @Column(name = "name")
     private String name;

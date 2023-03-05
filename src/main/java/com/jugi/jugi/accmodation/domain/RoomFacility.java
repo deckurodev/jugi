@@ -1,9 +1,14 @@
 package com.jugi.jugi.accmodation.domain;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 // 객실시설
+@NoArgsConstructor
+@Getter
 @Embeddable
 public class RoomFacility {
     @Column(name = "room_spa")
