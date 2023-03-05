@@ -25,7 +25,6 @@ public class AccommodationController {
 
     private final AccommodationFindService accommodationFindService;
 
-    @RequestMapping("/hotel")
     @Operation(summary = "호텔 검색", description = "호텔 타입만 검색합니다.")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = AccommodationFindResult.class))),
@@ -38,7 +37,7 @@ public class AccommodationController {
             @Parameter(name = "skip", description = "오프셋(디폴트 0)", example = "10"),
             @Parameter(name = "take", description = "검색 사이즈(디폴트 100)", example = "10")
     })
-    @PostMapping
+    @PostMapping("/hotel")
     public List<AccommodationFindResult> findAccommodation(
             @RequestBody AccommodationFindRequest request,
             @RequestParam(value = "skip", defaultValue = "0") int skip,
