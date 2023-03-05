@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PrivateFacility {
+public class RoomFacility {
     private String roomSpa;
     private String minibar;
     private String wifi;

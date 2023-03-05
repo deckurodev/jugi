@@ -11,7 +11,7 @@ import javax.persistence.Embeddable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class PublicFacility {
+public class CommonFacility {
 
     @Column(name = "fitness")
     private String fitness;

@@ -1,6 +1,5 @@
 package com.jugi.jugi.accmodation.web.dto;
 
-import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.Getter;
@@ -15,10 +14,10 @@ public class AccommodationFindRequest {
     private String search;
 
     @Schema(description = "공용 시설")
-    private PublicFacility publicFacility;
+    private CommonFacility commonFacility;
 
     @Schema(description = "개인 시설")
-    private PrivateFacility privateFacility;
+    private RoomFacility roomFacility;
 
     public String getSearch()
     {
@@ -34,7 +33,7 @@ public class AccommodationFindRequest {
     @Schema(description = "공용시설")
     @Getter
     @Setter
-    public static class PublicFacility
+    public static class CommonFacility
     {
         private String fitness;
         private String swimmingPool;
@@ -65,7 +64,7 @@ public class AccommodationFindRequest {
     @Schema(description = "개인 시설")
     @Getter
     @Setter
-    public static class privateFacility
+    public static class RoomFacility
     {
         private String roomSpa;
         private String minibar;

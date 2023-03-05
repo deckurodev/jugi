@@ -1,7 +1,6 @@
 package com.jugi.jugi.accmodation.application;
 
 import com.jugi.jugi.accmodation.domain.*;
-import org.assertj.core.api.Assertions;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @Transactional
 @SpringBootTest
@@ -23,7 +22,7 @@ class AccommodationServiceTest {
     void findAllTest()
     {
         List<Accommodation> all = accommodationRepository.findAll();
-        Assertions.assertThat(all).isNotNull();
+        assertThat(all).isNotNull();
     }
 
     @Test
@@ -44,8 +43,8 @@ class AccommodationServiceTest {
         accommodation.setBusinessType(BusinessType.HOTEL);
         accommodation.setApprovalDate(LocalDateTime.now());
         accommodation.setApprovalDate(LocalDateTime.now());
-        PublicFacility publicFacility = PublicFacility.builder().build();;
-        accommodation.setPublicFacilities(Lists.newArrayList(publicFacility));
+        CommonFacility commonFacility = CommonFacility.builder().build();;
+        accommodation.setCommonFacility(commonFacility);
         accommodationRepository.save(accommodation);
     }
 }

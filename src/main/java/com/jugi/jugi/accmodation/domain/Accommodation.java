@@ -43,8 +43,8 @@ public class Accommodation {
     private String phoneNumber;
 
     @Embedded
-    private PublicFacility publicFacility;
+    private CommonFacility commonFacility;
 
     @Embedded
-    private PrivateFacility privateFacility;
+    private RoomFacility roomFacility;
 }

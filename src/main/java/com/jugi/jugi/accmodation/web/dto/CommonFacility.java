@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PublicFacility {
+public class CommonFacility {
     private String fitness;
     private String swimmingPool;
     private String sauna;

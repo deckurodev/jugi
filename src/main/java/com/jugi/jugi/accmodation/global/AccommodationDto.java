@@ -25,8 +25,8 @@ public class AccommodationDto {
     private String streetZipCode; // 도로명 우편번호
     private String name; // 사업자 명
     private String businessType; // 업태구분명
-    private String xaddress;
-    private String yaddress;
+    private String xAddress;
+    private String yAddress;
     private int groundFloor;
     private int bottomFloor;
     private HotelImage hotelImage;

@@ -1,9 +1,6 @@
 package com.jugi.jugi.accmodation.web.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
-
-import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -27,7 +24,7 @@ public class AccommodationFindResult {
     private int groundFloor;
     private int bottomFloor;
     private HotelImage hotelImage;
-    private PrivateFacility privateFacility;
-    private PublicFacility publicFacility;
+    private RoomFacility roomFacility;
+    private CommonFacility commonFacility;
 
 }

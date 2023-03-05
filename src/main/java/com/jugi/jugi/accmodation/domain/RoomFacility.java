@@ -3,8 +3,9 @@ package com.jugi.jugi.accmodation.domain;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
+// 객실시설
 @Embeddable
-public class PrivateFacility {
+public class RoomFacility {
     @Column(name = "room_spa")
     private String roomSpa;
 
