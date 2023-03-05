@@ -19,8 +19,8 @@ public class AccommodationFindResult {
     private String streetZipCode;
     private String name;
     private String businessType;
-    private String xaddress;
-    private String yaddress;
+    private String xAddress;
+    private String yAddress;
     private int groundFloor;
     private int bottomFloor;
     private HotelImage hotelImage;

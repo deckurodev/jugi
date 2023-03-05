@@ -7,8 +7,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Table(name = "accommodation")
 @Entity
@@ -42,9 +40,11 @@ public class Accommodation {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @Embedded
+    @Column(name = "common_facility")
+    @Enumerated(EnumType.STRING)
     private CommonFacility commonFacility;
 
-    @Embedded
+    @Column(name = "room_facility")
+    @Enumerated(EnumType.STRING)
     private RoomFacility roomFacility;
 }

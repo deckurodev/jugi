@@ -1,7 +1,6 @@
 package com.jugi.jugi.accmodation.application;
 
 import com.jugi.jugi.accmodation.domain.*;
-import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,15 +18,13 @@ class AccommodationServiceTest {
     AccommodationRepository accommodationRepository;
 
     @Test
-    void findAllTest()
-    {
+    void findAllTest() {
         List<Accommodation> all = accommodationRepository.findAll();
         assertThat(all).isNotNull();
     }
 
     @Test
-    void createTest()
-    {
+    void createTest() {
         Accommodation accommodation = new Accommodation();
         accommodation.setName("name");
         AccommodationAddress accommodationAddress = new AccommodationAddress();
@@ -43,8 +40,8 @@ class AccommodationServiceTest {
         accommodation.setBusinessType(BusinessType.HOTEL);
         accommodation.setApprovalDate(LocalDateTime.now());
         accommodation.setApprovalDate(LocalDateTime.now());
-        CommonFacility commonFacility = CommonFacility.builder().build();;
-        accommodation.setCommonFacility(commonFacility);
+        accommodation.setCommonFacility(CommonFacility.FITNESS);
+        accommodation.setCommonFacility(CommonFacility.SWIMMING_POLL);
         accommodationRepository.save(accommodation);
     }
 }
