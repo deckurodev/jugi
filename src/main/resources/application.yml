@@ -1,19 +1,35 @@
 spring:
+  profiles:
+    active: local
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/hotel?serverTimezone=Asia/Seoul
+    username: root
+    password: root1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect # 추가 해준 부분
+
+elasticsearch:
+  ip: 127.0.0.1
+  port: 9200
+
+---
+spring:
+  profiles:
+    active: dev
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://database-1.ciclmc7wjq3o.ap-northeast-2.rds.amazonaws.com:3306/hotel?serverTimezone=Asia/Seoul
     username: jugiadmin
     password: kafka1234
-#    url: jdbc:mysql://localhost:3306/hotel?serverTimezone=Asia/Seoul
-#    username: root
-#    password: root1234
-
   jpa:
     hibernate:
       ddl-auto: update
-    database: mysql   # 추가 해준 부분
+    database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect # 추가 해준 부분
-
 elasticsearch:
   ip: 3.37.36.10
   port: 9200

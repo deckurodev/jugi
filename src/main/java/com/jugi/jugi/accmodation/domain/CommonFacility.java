@@ -1,87 +1,39 @@
 package com.jugi.jugi.accmodation.domain;
 
-import lombok.*;
+import lombok.Getter;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-
+// 공용시설
 @Getter
-@Setter
-@Embeddable
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-public class CommonFacility {
+public enum CommonFacility {
 
-    @Column(name = "fitness")
-    private String fitness;
+    FITNESS("피트니스"),
+    SWIMMING_POLL("수영장"),
+    SAUNA("사우나"),
+    GOLF_COURSE("골프장"),
+    RESTAURANT("레스토랑"),
+    ELEVATOR("엘리베이터"),
+    LOUNGE("라운지"),
+    PUBLIC_PC("공용PC"),
+    BBQ("BBQ"),
+    CAFE("카페"),
+    PUBLIC_SPA("공용스파"),
+    FOOTBALL_GROUND("족구장"),
+    MEETING_ROOM("세미나실"),
+    CONVENIENCE_STORE("편의점"),
+    SINGING_ROOM("노래방"),
+    KITCHEN("주방/식당"),
+    WASHING_MACHINE("세탁기"),
+    DRYING_MACHINE("건조기"),
+    SPIN_DRYER("탈수기"),
+    PARKING_LOT("주차장"),
+    MAKING_FOOD("취사가능"),
+    PUBLIC_SHOWER("공용샤워실"),
+    HOT_SPRING("온천"),
+    SKI_RESORT("스키장");
 
-    @Column(name = "swimming_pool")
-    private String swimmingPool;
+    private final String commonFacilityOptions;
 
-    @Column(name = "sauna")
-    private String sauna;
-
-    @Column(name = "golf_course")
-    private String golfCourse;
-
-    @Column(name = "restaurant")
-    private String restaurant;
-
-    @Column(name = "elevator")
-    private String elevator;
-
-    @Column(name = "lounge")
-    private String lounge;
-
-    @Column(name = "public_pc")
-    private String publicPc;
-
-    @Column(name = "bbq")
-    private String bbq;
-
-    @Column(name = "cafe")
-    private String cafe;
-
-    @Column(name = "public_spa")
-    private String publicSpa;
-
-    @Column(name = "football_groud")
-    private String footballGround;
-
-    @Column(name = "meeting_rom")
-    private String meetingRoom;
-
-    @Column(name = "convenience_store")
-    private String convenienceStore;
-
-    @Column(name = "singing_room")
-    private String singingRoom;
-
-    @Column(name = "kitchen")
-    private String kitchen;
-
-    @Column(name = "washing_machine")
-    private String washingMachine;
-
-    @Column(name = "drying_machine")
-    private String dryingMachine;
-
-    @Column(name = "spin_dryer")
-    private String spinDryer;
-
-    @Column(name = "parking_lot")
-    private String parkingLot;
-
-    @Column(name = "making_food")
-    private String makingFood;
-
-    @Column(name = "public_shower")
-    private String publicShower;
-
-    @Column(name = "hot_spring")
-    private String hotSpring;
-
-    @Column(name = "ski_resort")
-    private String skiResort;
+    CommonFacility(String commonFacilityOptions) {
+        this.commonFacilityOptions = commonFacilityOptions;
+    }
 }

@@ -7,14 +7,12 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Table(name = "accommodation")
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Accommodation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,8 +41,8 @@ public class Accommodation {
     private String phoneNumber;
 
     @Embedded
-    private CommonFacility commonFacility;
+    private CommonFacilities commonFacilities;
 
     @Embedded
-    private RoomFacility roomFacility;
+    private RoomFacilities roomFacilities;
 }
