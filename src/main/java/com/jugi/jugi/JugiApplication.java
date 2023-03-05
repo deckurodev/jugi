@@ -9,6 +9,7 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 public class JugiApplication {
 
     public static void main(String[] args) {
+//        System.setProperty("spring.profiles.default", "dev");
         SpringApplication.run(JugiApplication.class, args);
     }
 

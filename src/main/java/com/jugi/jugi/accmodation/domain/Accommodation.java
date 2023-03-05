@@ -1,5 +1,7 @@
 package com.jugi.jugi.accmodation.domain;
 
+import com.jugi.jugi.accmodation.domain.type.BusinessType;
+import com.jugi.jugi.accmodation.domain.type.DetailStatus;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,6 +17,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Accommodation {
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -28,6 +31,9 @@ public class Accommodation {
     @Column(name = "business_type")
     @Enumerated(EnumType.STRING)
     private BusinessType businessType;
+
+    @Column(name = "manage_number")
+    private String manageNumber;
 
     private Integer star;
 

@@ -10,6 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 public class RoomFacilities {
+
     @Enumerated(EnumType.STRING)
     @ElementCollection
     @CollectionTable(name = "room_facilities", joinColumns = @JoinColumn(name = "acco_id"))

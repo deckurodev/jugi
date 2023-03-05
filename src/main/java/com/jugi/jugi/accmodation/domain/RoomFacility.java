@@ -1,27 +1,24 @@
 package com.jugi.jugi.accmodation.domain;
 
+import com.jugi.jugi.accmodation.domain.type.RoomFacilityType;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-// 객실시설
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import java.time.LocalDateTime;
+
 @Getter
-public enum RoomFacility {
+@Embeddable
+@NoArgsConstructor
+public class RoomFacility {
 
-    ROOM_SPA("객실스파"),
-    MINI_BAR("미니바"),
-    WIFI("와이파이"),
-    BATH_SUPPLIES("욕실용품"),
-    TV("TV"),
-    AIR_CONDITIONER("에어컨"),
-    REFRIGERATOR("냉장고"),
-    ROOM_SHOWER("객실샤워실"),
-    BATH_TUB("욕조"),
-    DRIER("드라이기"),
-    IRON("다리미"),
-    RICE_COOKER("전기밥솥");
+    @Column(name = "room_type")
+    @Enumerated(EnumType.STRING)
+    private RoomFacilityType roomFacilityType;
 
-    private final String roomFacilityOptions;
-
-    RoomFacility(String roomFacilityOptions) {
-        this.roomFacilityOptions = roomFacilityOptions;
-    }
+    @Column(name = "reg_dt", updatable = false)
+    private LocalDateTime registerDate;
 }

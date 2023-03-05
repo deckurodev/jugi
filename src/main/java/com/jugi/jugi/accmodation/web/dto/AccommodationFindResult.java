@@ -2,6 +2,8 @@ package com.jugi.jugi.accmodation.web.dto;
 
 import lombok.*;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,7 +26,7 @@ public class AccommodationFindResult {
     private int groundFloor;
     private int bottomFloor;
     private HotelImage hotelImage;
-    private RoomFacility roomFacility;
-    private CommonFacility commonFacility;
+    private List<String> common;
+    private List<String> room;
 
 }

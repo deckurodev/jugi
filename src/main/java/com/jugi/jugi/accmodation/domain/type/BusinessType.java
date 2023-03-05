@@ -1,4 +1,4 @@
-package com.jugi.jugi.accmodation.domain;
+package com.jugi.jugi.accmodation.domain.type;
 
 import lombok.Getter;
 

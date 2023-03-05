@@ -26,8 +26,8 @@ public class AccommodationAddress {
     private String streetZipCode;
 
     @Column(name = "x_code")
-    private double xCode;
+    private String xCode;
 
     @Column(name = "y_code")
-    private double yCode;
+    private String yCode;
 }

@@ -4,16 +4,15 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Embeddable
 @Getter
 @Setter
 public class CommonFacilities {
 
-    @Enumerated(EnumType.STRING)
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "common_facilities", joinColumns = @JoinColumn(name = "acco_id"))
-    private List<CommonFacility> commonFacilities;
+    private Set<CommonFacility> commonFacilities;
 
 }
