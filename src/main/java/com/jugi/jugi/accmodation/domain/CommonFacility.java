@@ -11,7 +11,6 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import java.time.LocalDateTime;
 
-@Setter
 @Getter
 @Embeddable
 @NoArgsConstructor
@@ -23,4 +22,10 @@ public class CommonFacility {
 
     @Column(name = "reg_dt", updatable = false)
     private LocalDateTime registerDate;
+
+    public CommonFacility(CommonFacilityType commonFacilityType, LocalDateTime registerDate)
+    {
+        this.commonFacilityType = commonFacilityType;
+        this.registerDate = registerDate;
+    }
 }

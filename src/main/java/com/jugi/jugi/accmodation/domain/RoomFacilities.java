@@ -8,7 +8,6 @@ import java.util.List;
 
 @Embeddable
 @Getter
-@Setter
 public class RoomFacilities {
 
     @Enumerated(EnumType.STRING)

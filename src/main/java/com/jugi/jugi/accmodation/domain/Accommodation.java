@@ -5,19 +5,18 @@ import com.jugi.jugi.accmodation.domain.type.DetailStatus;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Table(name = "accommodation")
 @Entity
 @Getter
-@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Accommodation {
     @Id
-    @Column(name = "id")
+    @Column(name = "acco_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -51,4 +50,43 @@ public class Accommodation {
 
     @Embedded
     private RoomFacilities roomFacilities;
+
+    @OneToMany(
+            fetch = FetchType.EAGER
+            , cascade = CascadeType.ALL
+            , orphanRemoval = true
+            , mappedBy = "accommodation"
+    )
+    private List<AccommodationInfo> accommodationInfoList;
+
+    public Accommodation(
+            String name,
+            DetailStatus detailStatus,
+            BusinessType businessType,
+            String manageNumber,
+            Integer star,
+            AccommodationAddress accommodationAddress,
+            LocalDateTime approvalDate,
+            String phoneNumber,
+            CommonFacilities commonFacilities,
+            RoomFacilities roomFacilities,
+            List<AccommodationInfo> accommodationInfoList)
+    {
+        this.name = name;
+        this.detailStatus = detailStatus;
+        this.businessType = businessType;
+        this.manageNumber = manageNumber;
+        this.star = star;
+        this.accommodationAddress = accommodationAddress;
+        this.approvalDate = approvalDate;
+        this.phoneNumber = phoneNumber;
+        this.commonFacilities = commonFacilities;
+        this.roomFacilities = roomFacilities;
+        this.accommodationInfoList = accommodationInfoList;
+    }
+
+    public void setAccommodationInfoList(List<AccommodationInfo> accommodationInfos)
+    {
+        this.accommodationInfoList = accommodationInfos;
+    }
 }

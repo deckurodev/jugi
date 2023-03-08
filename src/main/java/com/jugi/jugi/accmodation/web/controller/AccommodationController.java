@@ -15,6 +15,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.util.List;
 
 @Tag(name = "숙박 검색", description = "숙박 검색 API")
@@ -45,6 +46,11 @@ public class AccommodationController {
 
     ) throws IOException
     {
+        if (take > 30)
+        {
+            throw new RemoteException("최대 take 30 초과");
+        }
+
         return accommodationFindService.findResult(request, skip, take);
     }
 }
