@@ -14,7 +14,7 @@ spring:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
 elasticsearch:
-  ip: 3.37.36.10
+  ip: 15.164.187.93
   port: 9200
 
 ---
