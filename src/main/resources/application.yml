@@ -4,8 +4,11 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://database-1.ciclmc7wjq3o.ap-northeast-2.rds.amazonaws.com:3306/hotel?serverTimezone=Asia/Seoul
+#    url: jdbc:mysql://localhost:3306/hotel?serverTimezone=Asia/Seoul
     username: jugiadmin
     password: kafka1234
+#    username: root
+#    password: root1234
   jpa:
     hibernate:
       ddl-auto: none

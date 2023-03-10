@@ -22,6 +22,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api")
+@CrossOrigin("*")
 public class AccommodationController {
 
     private final AccommodationFindService accommodationFindService;
@@ -42,10 +43,9 @@ public class AccommodationController {
     public List<AccommodationFindResult> findAccommodation(
             @RequestBody AccommodationFindRequest request,
             @RequestParam(value = "skip", defaultValue = "0") int skip,
-            @RequestParam(value = "take", defaultValue = "100") int take
+            @RequestParam(value = "take", defaultValue = "30") int take
 
-    ) throws IOException
-    {
+    ) throws IOException, IllegalAccessException {
         if (take > 30)
         {
             throw new RemoteException("최대 take 30 초과");
