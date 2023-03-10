@@ -1,9 +1,10 @@
 package com.jugi.jugi.accmodation.domain;
 
 import com.google.common.collect.Sets;
-import com.jugi.jugi.accmodation.domain.type.BusinessType;
-import com.jugi.jugi.accmodation.domain.type.CommonFacilityType;
-import com.jugi.jugi.accmodation.domain.type.DetailStatus;
+import com.jugi.jugi.accmodation.command.accommodation.domain.*;
+import com.jugi.jugi.accmodation.command.accommodation.domain.type.BusinessType;
+import com.jugi.jugi.accmodation.command.accommodation.domain.type.CommonFacilityType;
+import com.jugi.jugi.accmodation.command.accommodation.domain.type.DetailStatus;
 
 import java.time.LocalDateTime;
 

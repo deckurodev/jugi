@@ -1,4 +1,4 @@
-package com.jugi.jugi.accmodation.domain;
+package com.jugi.jugi.accmodation.command.accommodation.domain;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

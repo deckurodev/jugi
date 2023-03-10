@@ -1,5 +1,7 @@
 package com.jugi.jugi.accmodation.domain;
 
+import com.jugi.jugi.accmodation.command.accommodation.domain.Accommodation;
+import com.jugi.jugi.accmodation.command.accommodation.domain.AccommodationRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
