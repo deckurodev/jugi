@@ -1,8 +1,8 @@
+--
+-- create schema hotel;
+-- use hotel;
 
-create schema hotel;
-use hotel;
-
-
+DROP TABLE  if exists hotel.acco_image_map;
 create table hotel.acco_image_map
 (
     acco_id       bigint null,
