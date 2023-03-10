@@ -1,6 +1,6 @@
-package com.jugi.jugi.accmodation.domain;
+package com.jugi.jugi.accmodation.command.accommodation.domain;
 
-import com.jugi.jugi.accmodation.domain.type.RoomFacilityType;
+import com.jugi.jugi.accmodation.command.accommodation.domain.type.RoomFacilityType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

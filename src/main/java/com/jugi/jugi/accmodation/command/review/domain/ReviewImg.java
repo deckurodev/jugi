@@ -1,16 +1,14 @@
-package com.jugi.jugi.accmodation.domain.review;
+package com.jugi.jugi.accmodation.command.review.domain;
 
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 
 @Table(name = "review_img")
 @Entity
 @Getter
-@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class ReviewImg {
 

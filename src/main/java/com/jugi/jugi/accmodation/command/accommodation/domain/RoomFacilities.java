@@ -1,7 +1,6 @@
-package com.jugi.jugi.accmodation.domain;
+package com.jugi.jugi.accmodation.command.accommodation.domain;
 
 import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;

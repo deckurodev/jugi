@@ -1,7 +1,7 @@
-package com.jugi.jugi.accmodation.domain;
+package com.jugi.jugi.accmodation.command.accommodation.domain;
 
-import com.jugi.jugi.accmodation.domain.type.BusinessType;
-import com.jugi.jugi.accmodation.domain.type.DetailStatus;
+import com.jugi.jugi.accmodation.command.accommodation.domain.type.DetailStatus;
+import com.jugi.jugi.accmodation.command.accommodation.domain.type.BusinessType;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

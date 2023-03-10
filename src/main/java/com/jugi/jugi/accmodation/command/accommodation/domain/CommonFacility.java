@@ -1,9 +1,8 @@
-package com.jugi.jugi.accmodation.domain;
+package com.jugi.jugi.accmodation.command.accommodation.domain;
 
-import com.jugi.jugi.accmodation.domain.type.CommonFacilityType;
+import com.jugi.jugi.accmodation.command.accommodation.domain.type.CommonFacilityType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

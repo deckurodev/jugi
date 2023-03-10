@@ -1,5 +1,9 @@
 package com.jugi.jugi.accmodation.domain;
 
+import com.jugi.jugi.accmodation.command.accommodation.domain.Accommodation;
+import com.jugi.jugi.accmodation.command.accommodation.domain.AccommodationInfo;
+import com.jugi.jugi.accmodation.command.accommodation.domain.AccommodationInfoValue;
+import com.jugi.jugi.accmodation.command.accommodation.domain.AccommodationRepository;
 import org.assertj.core.api.Assertions;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.DisplayName;
