@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Table(name = "review")
 @Entity
@@ -23,7 +24,7 @@ public class Review {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "content")
+    @Column(name = "content", columnDefinition = "LONGTEXT")
     private String content;
 
     @Column(name = "rating")
@@ -32,4 +33,10 @@ public class Review {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "acco_id")
     private Accommodation accommodation;
+
+    @Column(name = "reg_dt", updatable = false)
+    private LocalDateTime registerDate;
+
+    @Column(name = "mod_dt", updatable = false)
+    private LocalDateTime modifyDate;
 }
