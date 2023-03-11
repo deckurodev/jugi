@@ -1,4 +1,4 @@
-package com.jugi.jugi.accmodation.application;
+package com.jugi.jugi.accmodation.application.accommodation;
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import co.elastic.clients.elasticsearch._types.query_dsl.MatchQuery;

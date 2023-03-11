@@ -1,13 +1,8 @@
 package com.jugi.jugi.accmodation.global;
 
-import com.jugi.jugi.accmodation.web.dto.AccommodationFindResult;
 import com.jugi.jugi.accmodation.web.dto.HotelImage;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import java.util.List;
 
 @Data
 @NoArgsConstructor
