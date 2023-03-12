@@ -24,9 +24,6 @@ class AccommodationInfoTest {
     AccommodationRepository accommodationRepository;
 
     @Autowired
-    AccommodationInfoRepository accommodationInfoRepository;
-
-    @Autowired
     EntityManager entityManager;
 
     @Test
