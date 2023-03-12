@@ -8,8 +8,6 @@ import com.jugi.jugi.accmodation.web.dto.ReviewDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -52,7 +50,7 @@ public class AccommodationController {
     @Parameters({
             @Parameter(name = "accoId", description = "호텔 ID", example = "7")
     })
-    @GetMapping("/hotel/{id}")
+    @GetMapping("/hotel/{accoId}")
     public HotelDetail findHotelById(@PathVariable("accoId") Long accoId) throws IOException
     {
         return accommodationFindService.findHotelById(accoId);
