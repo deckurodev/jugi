@@ -19,7 +19,7 @@ public class AccommodationInfo {
 
     private String attribute;
 
-    @ElementCollection(fetch = FetchType.LAZY)
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "acco_value_info", joinColumns = @JoinColumn(name = "acco_info_id"))
     private List<AccommodationInfoValue> accommodationInfoValueList;
 
@@ -27,10 +27,16 @@ public class AccommodationInfo {
     @JoinColumn(name = "acco_id")
     private Accommodation accommodation;
 
-    public AccommodationInfo(String attribute, List<AccommodationInfoValue> accommodationInfoValueList)
+    public void setAccommodation(Accommodation accommodation) {
+        this.accommodation = accommodation;
+    }
+
+    private int displayOrder;
+
+    public AccommodationInfo(String attribute, List<AccommodationInfoValue> accommodationInfoValueList, int displayOrder)
     {
         this.attribute = attribute;
-
+        this.displayOrder = displayOrder;
         long count = accommodationInfoValueList.stream().map(AccommodationInfoValue::getDisplayOrder).distinct().count();
 
         if (count  != accommodationInfoValueList.size())

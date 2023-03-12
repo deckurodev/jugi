@@ -1,25 +1,33 @@
-package com.jugi.jugi.accmodation.command.accommodation.domain;
+package com.jugi.jugi.accmodation.web.dto;
 
-import lombok.EqualsAndHashCode;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-import javax.persistence.Embeddable;
-
-@Embeddable
 @Getter
+@Setter
 @NoArgsConstructor
-@EqualsAndHashCode(of = {"content", "displayOrder"})
+@ToString
 public class AccommodationInfoValue {
+
+    @Schema(description = "상세 속성 내용")
     private String content;
+
+    @Schema(description = "상세 속성 노출 순서")
     private int displayOrder;
-    private boolean isBold;
+
+    @Schema(description = "굵은체 여부")
+    private boolean bold;
+
+    @Schema(description = "컬러")
     private String color = "black";
 
     public AccommodationInfoValue(String content, int displayOrder, boolean isBold, String color) {
         this.content = content;
         this.displayOrder = displayOrder;
-        this.isBold = isBold;
+        this.bold = bold;
         this.color = color;
     }
 

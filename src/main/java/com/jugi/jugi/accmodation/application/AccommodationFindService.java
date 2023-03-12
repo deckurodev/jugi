@@ -4,12 +4,16 @@ import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import co.elastic.clients.elasticsearch._types.query_dsl.MatchQuery;
 import co.elastic.clients.elasticsearch._types.query_dsl.Query;
 import co.elastic.clients.elasticsearch._types.query_dsl.TermQuery;
+import co.elastic.clients.elasticsearch.core.GetResponse;
 import co.elastic.clients.elasticsearch.core.SearchResponse;
 import co.elastic.clients.elasticsearch.core.search.Hit;
 import com.google.common.collect.Lists;
 import com.jugi.jugi.accmodation.web.dto.AccommodationFindRequest;
 import com.jugi.jugi.accmodation.web.dto.AccommodationFindResult;
+import com.jugi.jugi.accmodation.web.dto.HotelDetail;
+import com.jugi.jugi.accmodation.web.dto.ReviewDto;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -17,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
-
+@Log4j2
 @RequiredArgsConstructor
 @Service
 public class AccommodationFindService {
@@ -185,4 +189,42 @@ public class AccommodationFindService {
     }
 
 
+    public HotelDetail findHotelById(Long id) throws IOException {
+        GetResponse<HotelDetail> response = client.get(g -> g
+                        .index("hotel-detail")
+                        .id(id.toString()),
+                HotelDetail.class
+        );
+
+        if (response.found())
+        {
+            return response.source();
+        } else
+        {
+            log.info ("HotelDetail not found");
+        }
+        return null;
+    }
+
+    public ReviewDto findReviewById(Long accoId) throws IOException
+    {
+
+        SearchResponse<ReviewDto> response = client.search(s -> s
+                        .index("review")
+                        .query(q -> q.match(
+                                t ->t.field("accoId").query(accoId.toString())
+                                ))
+                ,
+                ReviewDto.class
+        );
+        List<Hit<ReviewDto>> hits = response.hits().hits();
+        ReviewDto reviewDto = null;
+        for (Hit<ReviewDto> hit: hits)
+        {
+            reviewDto = hit.source();
+            return reviewDto;
+        }
+
+        return null;
+    }
 }

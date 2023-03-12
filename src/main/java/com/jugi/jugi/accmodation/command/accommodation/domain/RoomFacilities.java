@@ -10,7 +10,7 @@ import java.util.List;
 public class RoomFacilities {
 
     @Enumerated(EnumType.STRING)
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "room_facilities", joinColumns = @JoinColumn(name = "acco_id"))
     private List<RoomFacility> roomFacilities;
 }

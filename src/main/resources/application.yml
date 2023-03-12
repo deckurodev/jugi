@@ -1,6 +1,4 @@
 spring:
-#  profiles:
-#    active: local
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/hotel?serverTimezone=Asia/Seoul
@@ -11,11 +9,10 @@ spring:
       mode: always
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
     show-sql: true
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-#    defer-datasource-initialization: true
 elasticsearch:
   ip: 15.164.187.93
   port: 9200
@@ -24,21 +21,3 @@ logging:
   level:
     org:
       springframework.web: debug
----
-#
-#spring:
-#  profiles:
-#    active: dev
-#  datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://database-1.ciclmc7wjq3o.ap-northeast-2.rds.amazonaws.com:3306/hotel?serverTimezone=Asia/Seoul
-#    username: jugiadmin
-#    password: kafka1234
-#  jpa:
-#    hibernate:
-#      ddl-auto: none
-#    database: mysql
-#    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-#elasticsearch:
-#  ip: 3.37.36.10
-#  port: 9200

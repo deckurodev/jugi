@@ -23,6 +23,12 @@ class ReviewTest {
     @Autowired
     ReviewRepository reviewRepository;
 
+    public static Review review1()
+    {
+        return new Review(
+
+        );
+    }
     @Test
     void saveReviewTest()
     {

@@ -52,9 +52,8 @@ public class Accommodation {
     private RoomFacilities roomFacilities;
 
     @OneToMany(
-            fetch = FetchType.EAGER
+            fetch = FetchType.LAZY
             , cascade = CascadeType.ALL
-            , orphanRemoval = true
             , mappedBy = "accommodation"
     )
     private List<AccommodationInfo> accommodationInfoList;

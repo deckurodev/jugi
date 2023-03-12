@@ -3,11 +3,11 @@ package com.jugi.jugi.accmodation.web.controller;
 import com.jugi.jugi.accmodation.application.AccommodationFindService;
 import com.jugi.jugi.accmodation.web.dto.AccommodationFindRequest;
 import com.jugi.jugi.accmodation.web.dto.AccommodationFindResult;
+import com.jugi.jugi.accmodation.web.dto.HotelDetail;
+import com.jugi.jugi.accmodation.web.dto.ReviewDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -28,12 +28,6 @@ public class AccommodationController {
     private final AccommodationFindService accommodationFindService;
 
     @Operation(summary = "호텔 검색", description = "호텔 타입만 검색합니다.")
-    @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "OK", content = @Content(schema = @Schema(implementation = AccommodationFindResult.class))),
-            @ApiResponse(responseCode = "400", description = "BAD REQUEST"),
-            @ApiResponse(responseCode = "404", description = "NOT FOUND"),
-            @ApiResponse(responseCode = "500", description = "INTERNAL SERVER ERROR")
-    })
     @Parameters({
             @Parameter(name = "request", description = "검색어 파라미터", example = "경기도"),
             @Parameter(name = "skip", description = "오프셋(디폴트 0)", example = "10"),
@@ -52,5 +46,25 @@ public class AccommodationController {
         }
 
         return accommodationFindService.findResult(request, skip, take);
+    }
+
+    @Operation(summary = "호텔 상세 검색", description = "호텔 ID 상세 조회합니다.")
+    @Parameters({
+            @Parameter(name = "accoId", description = "호텔 ID", example = "7")
+    })
+    @GetMapping("/hotel/{id}")
+    public HotelDetail findHotelById(@PathVariable("accoId") Long accoId) throws IOException
+    {
+        return accommodationFindService.findHotelById(accoId);
+    }
+
+    @Operation(summary = "호텔 리뷰 검색", description = "호텔 리뷰를 조회합니다.")
+    @Parameters({
+            @Parameter(name = "accoId", description = "호텔 ID", example = "7")
+    })
+    @GetMapping("/review/{accoId}")
+    public ReviewDto findReviewById(@PathVariable("accoId") Long accoId) throws Exception
+    {
+        return accommodationFindService.findReviewById(accoId);
     }
 }

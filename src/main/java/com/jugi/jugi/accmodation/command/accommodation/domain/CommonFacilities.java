@@ -11,7 +11,7 @@ import java.util.Set;
 @NoArgsConstructor
 public class CommonFacilities {
 
-    @ElementCollection(fetch = FetchType.EAGER)
+    @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "common_facilities", joinColumns = @JoinColumn(name = "acco_id"))
     private Set<CommonFacility> commonFacilities;
 
